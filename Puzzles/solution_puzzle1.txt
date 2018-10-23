@@ -1,0 +1,8 @@
++ = Wall
+O = Blank
+
+O O O O O
++ + + + 6
++ 1 + 2 +
+3 + + O +
+O O + + +
