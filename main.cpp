@@ -28,6 +28,8 @@ int main(int argc, char** argv) {
 		return 2;
 	}
 	Board b(in_file);
+	b.islandOfOne();
+	b.adjacentNum();
 	b.print();
 
 	return 0;
