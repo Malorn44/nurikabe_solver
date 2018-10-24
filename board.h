@@ -26,6 +26,9 @@ class Board {
 		vector<vector<int> > board;
 		int height;
 		int width;
+
+		// Structure for holding the value of cells
+		vector<vector<int> > cellval;
 };
 
 #endif

@@ -28,7 +28,11 @@ void Board::fileToVector(ifstream& file) {
 		while (l >> word) {
 			// push back empty vector and then push back int
 			board.push_back(vector<int>());
+			cellval.push_back(vector<int>());
 			board[r].push_back(atoi(word.c_str()));
+
+			// pushes back a 1 or a 0 to cellval matrix
+			cellval[r].push_back(!!atoi(word.c_str()));
 			c++;
 		}
 		r++;
@@ -41,7 +45,9 @@ void Board::print() const {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			if (board[i][j] > 0) cout << board[i][j] << " ";
-			else cout << "+ ";
+			else if (cellval[i][j] == 1) cout << "O ";
+			else if (cellval[i][j] == 0) cout << "? ";
+			else if (cellval[i][j] == -1) cout << "+ ";
 		}
 		cout << endl;
 	}
