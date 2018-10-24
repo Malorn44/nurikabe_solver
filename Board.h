@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 #include <iostream>
 
 
@@ -12,7 +13,10 @@ using namespace std;
 class Board {
 	public:
 		// Default Constructor
-		Board();
+		Board(ifstream& file);
+
+		// Constructor Helpers
+		void fileToVector(ifstream& file);
 
 		// Prints out the board
 		void print() const;
