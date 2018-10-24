@@ -23,8 +23,12 @@ int main(int argc, char** argv) {
 
 	// opens the input file provided by user and creates board object
 	ifstream in_file(argv[1]);
+	if (!in_file) {
+		cout << "File does not exist" << endl;
+		return 2;
+	}
 	Board b(in_file);
-
+	b.print();
 
 	return 0;
 }

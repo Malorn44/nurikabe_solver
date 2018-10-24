@@ -38,5 +38,11 @@ void Board::fileToVector(ifstream& file) {
 }
 
 void Board::print() const {
-
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			if (board[i][j] > 0) cout << board[i][j] << " ";
+			else cout << "+ ";
+		}
+		cout << endl;
+	}
 }
