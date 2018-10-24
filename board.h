@@ -21,6 +21,12 @@ class Board {
 		// Prints out the board
 		void print() const;
 
+		int countAdjWhite(int r, int c) const;
+
+		// Naive Solvers
+		void islandOfOne();
+		void adjacentNum();
+
 	private:
 		// Structure for holding the board
 		vector<vector<int> > board;

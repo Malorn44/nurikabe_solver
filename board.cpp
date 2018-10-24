@@ -52,3 +52,44 @@ void Board::print() const {
 		cout << endl;
 	}
 }
+
+int Board::countAdjWhite(int r, int c) const {
+	int count = 0;
+	if (r > 0) count += cellval[r-1][c];
+	if (c > 0) count += cellval[r][c-1];
+	if (r < height-1) count += cellval[r+1][c];
+	if (c < width-1)  count += cellval[r][c+1];
+	return count;
+}
+
+// NAIVE SOLVERS //
+
+/* Fills in black around a 1
+OOO     O+O
+O1O --> +1+
+OOO     O+O 
+*/
+void Board::islandOfOne() {
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			if (board[i][j] == 1) {
+				if (i > 0) cellval[i-1][j] = -1;
+				if (j > 0) cellval[i][j-1] = -1;
+				if (i < height-1) cellval[i+1][j] = -1;
+				if (j < width-1)  cellval[i][j+1] = -1;
+			}
+		}
+	}
+}
+
+void Board::adjacentNum() {
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			if (cellval[i][j] == 0) {
+				if (countAdjWhite(i,j) > 1) {
+					cellval[i][j] = -1;
+				}
+			}
+		}
+	}
+}
