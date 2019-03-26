@@ -6,7 +6,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "/libs/pugixml/src/pugixml.hpp"
+#include "../libs/pugixml/src/pugixml.hpp"
 
 using namespace std;
 
@@ -15,9 +15,10 @@ class Board {
 	public:
 		Board(ifstream& file);
 
-		vector<vector<int> > fileToVector();
-
 	private:
+		vector<vector<int> > board;
+		int height;
+		int width;
 }
 
 
