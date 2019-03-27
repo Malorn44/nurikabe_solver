@@ -1,26 +1,24 @@
-#ifndef _BOARD_H_
-#define _BOARD_H_
+// #ifndef _BOARD_H_
+// #define _BOARD_H_
 
-#include <string>
-#include <vector>
-#include <fstream>
-#include <iostream>
+// #include <string>
+// #include <vector>
+// #include <fstream>
+// #include <iostream>
 
-#include "../libs/pugixml/src/pugixml.hpp"
 
-using namespace std;
+// using namespace std;
 
-// For parsing an xml file used to store a puzzle
-class Board {
-	public:
-		Board(ifstream& file);
+// // For parsing an xml file used to store a puzzle
+// class Board {
+// 	public:
+// 		Board(string& file);
 
-	private:
-		vector<vector<int> > board;
-		int height;
-		int width;
-}
-
+// 	private:
+// 		vector<vector<int> > board;
+// 		int height;
+// 		int width;
+// };
 
 
 
@@ -28,4 +26,5 @@ class Board {
 
 
 
-#endif
+
+// #endif
