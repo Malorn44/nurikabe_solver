@@ -12,12 +12,14 @@ void printCell (const Cell& cell) {
 	std::cout << "Cell{value: " << cell.value << " x: " << cell.x << " y: " << cell.y << " }" << std::endl;
 }
 
+// Constructor
 Board::Board(string& file) {
 	height = 0;
 	width = 0;
 	createNewBoard(file);
 }
 
+// Constructor helper, initializes the board matrix with the propper values
 void Board::createNewBoard(string& file) {
 	std::vector<Cell> cellVec = ParseXML(file);	
 
@@ -34,6 +36,10 @@ void Board::createNewBoard(string& file) {
 
 }
 
+// Prases the XML file using tinyxml2 and returns a vector of Cells that have
+// a value defined in the XML file. Also sets the height and width values or board
+// when it encounters that information. Has some minor error checking, if it finds an
+// error it returns an empty vector<Cell>
 std::vector<Cell> Board::ParseXML(string& file) {
 
 	XMLDocument doc;
@@ -84,6 +90,8 @@ std::vector<Cell> Board::ParseXML(string& file) {
 	return cellVec;
 }
 
+// Prints out the board with spaces for separation
+// Will look odd for numbers with >= 2 digits
 void Board::print() {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
