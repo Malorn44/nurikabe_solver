@@ -273,7 +273,7 @@ int main() {
             const auto finish = steady_clock::now();
 
 
-            ofstream f(puzzle.name + string(".html"));
+            ofstream f(string("html-output/") + puzzle.name + string(".html"));
 
             g.write(f, start, finish);
 
