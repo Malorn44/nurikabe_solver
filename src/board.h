@@ -27,13 +27,24 @@ class Board {
 		// Prints
 		void print();
 
+		// Modifier
+		void set(int r, int c, int val) { board[r][c] = val; }
+		void surroundInBlack(int r, int c);
+		void setwater(int j);
+
+		// Observers
+		int numRows() const { return rows; }
+		int numCols() const { return cols; }
+		int get(int r, int c) { return board[r][c]; }
+		int adjNumbers(int r, int c) const;
+
 	private:
 		vector<Cell> ParseXML(string& file);
 
 		// Member variables
 		vector<vector<int> > board;
-		int height;
-		int width;
+		int rows;
+		int cols;
 };
 
 #endif
