@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "board.h"
-#include "nurikabe.cpp"
+#include "nurikabe.h"
 
 using namespace std;
 
@@ -42,6 +42,20 @@ int solve(Board &b) {
 
 // 	return 0;
 // }
+
+string format_tim(const steady_clock::time_point start, const steady_clock::time_point finish) {
+    ostringstream oss;
+
+    if (finish - start < 1ms) {
+        oss << duration_cast<duration<double, micro>>(finish - start).count() << " microseconds";
+    } else if (finish - start < 1s) {
+        oss << duration_cast<duration<double, milli>>(finish - start).count() << " milliseconds";
+    } else {
+        oss << duration_cast<duration<double>>(finish - start).count() << " seconds";
+    }
+
+    return oss.str();
+}
 
 int main() {
     struct Puzzle {
@@ -264,7 +278,7 @@ int main() {
             g.write(f, start, finish);
 
 
-            cout << puzzle.name << ": " << format_time(start, finish) << ", ";
+            cout << puzzle.name << ": " << format_tim(start, finish) << ", ";
 
             const int k = g.known();
             const int cells = puzzle.w * puzzle.h;
