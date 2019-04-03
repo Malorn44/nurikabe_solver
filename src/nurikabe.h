@@ -224,5 +224,6 @@ private:
     Grid& operator=(const Grid&) = delete;
 };
 
+string format_time(const steady_clock::time_point start, const steady_clock::time_point finish); 
 
 #endif
